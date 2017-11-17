@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -9,6 +10,7 @@ public class Py {
 	 */
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
+		ArrayList<String> PyDates = new ArrayList<String>();
 		HashMap<Integer, Integer> md = new HashMap<Integer, Integer>();
 		md.put(1, 31);
 		md.put(2, 28);
@@ -23,19 +25,33 @@ public class Py {
 		md.put(11, 30);
 		md.put(12, 31);
 		int year = 0;
-		while(year<2001 || year>2100){
-			System.out.println("Enter a number greater than 2000 and lower than 2100");
+		int year2 = 1;
+		while((year<2001 || year>2100)){
+			System.out.println("Enter a range of 2 numbers greater than 2000 and lower than 2100");
 			year = scan.nextInt();
+			year2 = scan.nextInt();
 		}
+		Integer syear = year-2000;
+		Integer syear2 = year2-2000;
 		
-		for(int m=1; m<12; m++){
-			System.out.println("Month: "+m);
-			for(int d=1; d<md.get(m); d++){
-				System.out.println("Day: "+d);
+		for(int y = syear; y<=syear2; y++){
+			for(int m=1; m<=12; m++){
+				for(int d=1; d<=md.get(m); d++){
+					if(m*m+d*d == y*y){
+						String temp = m+"-"+d+"-"+y;
+						PyDates.add(temp);
+					}
+				}
 			}
 		}
-		
-		
+		System.out.println("There are: "+PyDates.size()+" Pythagorean days between these years");
+		System.out.println("Pythagorean days between the years: "+year+" and "+year2);
+		for(int i=0; i<PyDates.size(); i++){
+			System.out.println(PyDates.get(i));
+		}
+		if(PyDates.size() == 0){
+			System.out.println("No Dates found to be Pythagoral in this year");
+		}
 	}
 
 }
