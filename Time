@@ -1,0 +1,43 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Time {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<String> things = new ArrayList<String>();
+		things.add("Years");
+		things.add("Days");
+		things.add("Hours");
+		things.add("Minutes");
+		things.add("Seconds");
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		list.add(31536000);
+		list.add(86400);
+		list.add(3600);
+		list.add(60);
+		Scanner scan = new Scanner(System.in);
+		int remainder = -1;
+		while((remainder<0 || remainder>2000000000)){
+			System.out.print("Enter valid number of seconds");
+			remainder = scan.nextInt();
+		}
+		
+		
+		// list contains amount of seconds per ...
+		for(int i=0; i<4; i++){
+			System.out.println("OG remainder: "+remainder);
+			System.out.println("current # "+ list.get(i));
+			int temp = remainder / list.get(i);
+			System.out.println("Amount: "+temp);
+			System.out.println("check: "+ 1000000000%31536000);
+			remainder = remainder / list.get(i);
+			System.out.println("New Remainder: "+ remainder);
+			System.out.println(things.get(i)+": "+temp);
+		}
+	}
+
+}
