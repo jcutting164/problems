@@ -3,16 +3,20 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Hangman {
+	
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		//intro
+		System.out.println("Welcome to hangman! You input letters, a wrong letter results in another part of the man to be drawn!");
+		System.out.println("If you want to guess.....");
 		ArrayList<String> words = new ArrayList<String>();
 		
-		words.add("Josh");
-		words.add("Is");
-		words.add("Cool");
+		words.add("josh");
+		words.add("is");
+		words.add("cool");
 		
 		// selection of this round's word
 		
@@ -22,23 +26,73 @@ public class Hangman {
 			
 		System.out.println(word);
 		// makes blank word
-		ArrayList<String> myWord = new ArrayList<String>();
+		ArrayList<Character> myWord = new ArrayList<Character>();
 		for(int i=0; i<word.length(); i++){
-			myWord.add("_");
+			myWord.add('_');
 		}
 		Scanner scan = new Scanner(System.in);
-		while(myWord.contains("_")){
-			System.out.println("Current letters got");
+		int mistakes = 0;
+		boolean lose = false;
+		while(myWord.contains('_') || lose == true){
+	
+			//prints how much of the word you have gotten
+			System.out.println("Current:");
 			for(int i=0; i<myWord.size(); i++){
 				System.out.print(myWord.get(i)+" ");
 			}
+			//takes in character guess
 			char c = scan.next().charAt(0);
+			
 			for(int i=0; i<word.length(); i++){
-				if(c == word.charAt(i));
+				if(c == word.charAt(i)){
+					myWord.set(i, c);
+				}else if(c != word.charAt(i)){
+					if(mistakes == 0){
+						System.out.println(" o");
+						mistakes++;
+						break;
+					}else if(mistakes == 1){
+						System.out.println("o");
+						System.out.println(" /");
+						mistakes++;
+						break;
+					}else if(mistakes == 2){
+						System.out.println(" o");
+						System.out.println("\\ /");
+						mistakes++;
+						break;
+					}else if(mistakes == 3){
+						System.out.println(" o");
+						System.out.println("\\ /");
+						System.out.println(" |");
+						mistakes++;
+						break;
+					}else if(mistakes == 4){
+						System.out.println(" o");
+						System.out.println("\\ /");
+						System.out.println(" |");
+						System.out.println("  \\");
+						mistakes++;
+						break;
+					}else if(mistakes == 5){
+						System.out.println(" o");
+						System.out.println("\\ /");
+						System.out.println(" |");
+						System.out.println("/ \\");
+						System.out.println("That's an L ");
+						mistakes++;
+						lose = true;
+						break;
+					}
+					
+				if(!myWord.contains('_')){
+					System.out.println("Good job! You got it!");
+					for(int j=0; j<myWord.size(); j++){
+						System.out.print(myWord.get(j)+" ");
+					}
+				}
+				}
 			}
 		}
-		
-
 	}
-
 }
