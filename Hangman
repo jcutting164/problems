@@ -3,95 +3,226 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Hangman {
-	
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		//intro
-		System.out.println("Welcome to hangman! You input letters, a wrong letter results in another part of the man to be drawn!");
-		System.out.println("If you want to guess.....");
-		ArrayList<String> words = new ArrayList<String>();
-		
-		words.add("josh");
-		words.add("is");
-		words.add("cool");
-		
-		// selection of this round's word
-		
-		Random rand = new Random();
 
-		String word = words.get(rand.nextInt(words.size()+0));
-			
-		System.out.println(word);
-		// makes blank word
-		ArrayList<Character> myWord = new ArrayList<Character>();
-		for(int i=0; i<word.length(); i++){
-			myWord.add('_');
-		}
-		Scanner scan = new Scanner(System.in);
-		int mistakes = 0;
-		while(myWord.contains('_') || mistakes > 5){
-	
-			//prints how much of the word you have gotten
-			System.out.println("Current:");
-			for(int i=0; i<myWord.size(); i++){
-				System.out.print(myWord.get(i)+" ");
-			}
-			//takes in character guess
-			char c = scan.next().charAt(0);
-			
-			for(int i=0; i<word.length(); i++){
-				if(c == word.charAt(i)){
-					myWord.set(i, c);
-					break;
-				}else if(c != word.charAt(i)){
-					if(mistakes == 0){
-						System.out.println(" o");
-						mistakes++;
-						break;
-					}else if(mistakes == 1){
-						System.out.println("o");
-						System.out.println(" /");
-						mistakes++;
-						break;
-					}else if(mistakes == 2){
-						System.out.println(" o");
-						System.out.println("\\ /");
-						mistakes++;
-						break;
-					}else if(mistakes == 3){
-						System.out.println(" o");
-						System.out.println("\\ /");
-						System.out.println(" |");
-						mistakes++;
-						break;
-					}else if(mistakes == 4){
-						System.out.println(" o");
-						System.out.println("\\ /");
-						System.out.println(" |");
-						System.out.println("  \\");
-						mistakes++;
-						break;
-					}else if(mistakes == 5){
-						System.out.println(" o");
-						System.out.println("\\ /");
-						System.out.println(" |");
-						System.out.println("/ \\");
-						System.out.println("That's an L ");
-						mistakes++;
-						break;
-					}
-					
-				if(!myWord.contains('_')){
-					System.out.println("Good job! You got it!");
-					for(int j=0; j<myWord.size(); j++){
-						System.out.print(myWord.get(j)+" ");
-					}
-				}
-				}
-			}
-		}
-	}
-}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        //intro
+        System.out.println("Welcome to hangman! You input letters, a wrong letter results in another part of the man to be drawn!");
+        System.out.println("If you want to guess.....");
+        ArrayList<String> words = new ArrayList<String>();
+
+        words.add("josh");
+        words.add("is");
+        words.add("not");
+        words.add("cool");
+        words.add("just");
+        words.add("kidding");
+        words.add("hello");
+        words.add("cannibalism");
+        words.add("coat");
+        words.add("letter");
+        words.add("hangman");
+        words.add("input");
+        words.add("guess");
+        words.add("cars");
+        words.add("kale");
+        words.add("dictionary");
+        words.add("rowing");
+        words.add("biology");
+        words.add("current");
+        words.add("cellular");
+        words.add("covalent");
+        words.add("bond");
+        words.add("mitochondria");
+        words.add("organ");
+        words.add("youtube");
+        words.add("snapchat");
+        words.add("taxonomy");
+        words.add("biography");
+        words.add("reference");
+        words.add("custom");
+        words.add("niskayuna");
+        words.add("racism");
+        words.add("tacobell");
+        words.add("zephyr");
+        words.add("buzzlightyear");
+        words.add("assassin");
+        words.add("trash");
+        words.add("yourself");
+        words.add("communism");
+        words.add("robotics");
+        words.add("mouse");
+        words.add("roadblock");
+        words.add("roblox");
+        words.add("minecraft");
+        words.add("keyboard");
+        words.add("china");
+        words.add("seed");
+        words.add("spaghetti");
+        words.add("dixiklo");
+        words.add("lunar");
+        words.add("exit");
+        words.add("kelp");
+        words.add("cheerios");
+        words.add("burrito");
+        words.add("yeet");
+        words.add("mistakes");
+        words.add("fetus");
+        words.add("trump");
+        words.add("obamacare");
+        words.add("billnye");
+        words.add("pedobear");
+        words.add("average");
+        words.add("java");
+        words.add("words");
+        words.add("centrak");
+        words.add("school");
+        words.add("district");
+        words.add("recycle");
+        words.add("chrome");
+        words.add("firefox");
+        words.add("lunchbox");
+        words.add("monitor");
+        words.add("extrapolate");
+        words.add("library");
+        words.add("apostrophe");
+        words.add("eclipse");
+        words.add("case");
+        words.add("identification");
+        words.add("trigenometry");
+        words.add("desktop");
+        words.add("communication");
+        words.add("random");
+        words.add("website");
+        words.add("geometry");
+        words.add("acceleration");
+        words.add("excel");
+        words.add("powerpoint");
+        words.add("meme");
+        words.add("google");
+        words.add("cord");
+        words.add("chord");
+        words.add("clam");
+        words.add("clammy");
+        words.add("shallow");
+        words.add("shallots");
+        words.add("scallions");
+        words.add("bird");
+        words.add("cow");
+        words.add("west");
+        words.add("north");
+        words.add("south");
+        words.add("east");
+        words.add("longitude");
+        words.add("laditude");
+        words.add("equator");
+        words.add("meridian");
+        words.add("shirt");
+        words.add("semicolon");
+        words.add("colon");
+        words.add("cut");
+        words.add("seaweed");
+        words.add("coral");
+        words.add("coconut");
+        words.add("coco");
+        words.add("cacao");
+        words.add("chocolate");
+        words.add("shrimp");
+        words.add("shark");
+        words.add("laser");
+        words.add("ignition");
+        words.add("pus");
+        words.add("blood");
+        words.add("sweat");
+        words.add("tears");
+        words.add("dirt");
+        words.add("urine");
+
+
+
+        // selection of this round's word
+
+        Random rand = new Random();
+
+        String word = words.get(rand.nextInt(words.size()+0));
+
+        // makes blank word
+        ArrayList<Character> myWord = new ArrayList<Character>();
+        for(int i=0; i<word.length(); i++){
+            myWord.add('_');
+        }
+        Scanner scan = new Scanner(System.in);
+        int mistakes = 0;
+        int check = 0;
+        while(myWord.contains('_') && mistakes < 6){
+            //prints how much of the word you have gotten
+            System.out.println("Current:");
+            for(int i=0; i<myWord.size(); i++){
+                System.out.print(myWord.get(i)+" ");
+            }
+            //takes in character guess
+            char c = scan.next().charAt(0);
+
+            // compares c with every character in the word
+            check = 0;
+            for(int i=0; i<word.length(); i++){
+                if(c == word.charAt(i)){
+                    myWord.set(i, c);
+                }else{
+                    check++;
+                }
+                if(check == word.length()){
+                    // sequence of mistakes?
+                    if(mistakes == 0){
+                        System.out.println(" o");
+                        mistakes++;
+                        break;
+                    }else if(mistakes == 1){
+                        System.out.println("o");
+                        System.out.println(" /");
+                        mistakes++;
+                        break;
+                    }else if(mistakes == 2){
+                        System.out.println(" o");
+                        System.out.println("\\ /");
+                        mistakes++;
+                        break;
+                    }else if(mistakes == 3){
+                        System.out.println(" o");
+                        System.out.println("\\ /");
+                        System.out.println(" |");
+                        mistakes++;
+                        break;
+                    }else if(mistakes == 4){
+                        System.out.println(" o");
+                        System.out.println("\\ /");
+                        System.out.println(" |");
+                        System.out.println("  \\");
+                        mistakes++;
+                        break;
+                    }else if(mistakes == 5){
+                        System.out.println(" o");
+                        System.out.println("\\ /");
+                        System.out.println(" |");
+                        System.out.println("/ \\");
+                        System.out.println("That's an L ");
+                        mistakes++;
+                        System.out.println(mistakes);
+                        break;
+                    }
+                }
+                    // checks for win
+            if(!myWord.contains('_')){
+                    System.out.println("Good job! You got it!");
+                    for(int j=0; j<myWord.size(); j++){
+                        System.out.print(myWord.get(j)+" ");
+                    }
+                    break;
+                    }
+                }
+            }
+        }
+    }
