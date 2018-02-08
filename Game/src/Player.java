@@ -32,6 +32,7 @@ public class Player {
 			System.out.println("What do you want to do? \n");
 			System.out.println("1) Fight");
 			System.out.println("2) Defend");
+			System.out.println("3) Special");
 			String input = scan.next();
 			if(input.equals("1")){
 
@@ -88,7 +89,27 @@ public class Player {
 							}
 							
 						}else if(ran==3){
-							System.out.println(""); ///////////
+							System.out.println("You hit twice!");
+							System.out.println("And it was successful!!);
+							for(int i = 0; i<1; i++){
+								int enemy_damage = weapon_item.item_value + p1.attack_value;
+								e1.health_value = e1.health_value - (enemy_damage);
+								System.out.println("You did "+enemy_damage+ " damage to the "+ e1.type+" \n" );  
+								if(e1.health_value < 1){
+									System.out.println("You defeated the "+e1.type+"! \n");
+									break;
+								}
+							
+							}
+							
+							int player_damage = (e1.attack_value) +(p1.defense_item.item_value/3);
+							p1.health_value = p1.health_value - player_damage;
+							System.out.println("The "+e1.type+ " did "+ player_damage +" damage to you. Leaving you with "+p1.health_value+" health \n");
+							if(p1.health_value < 1){
+								System.out.println("You were defeated!");
+								break;
+							}
+							
 						}
 					}
 				}
