@@ -13,7 +13,7 @@ public class Exec {
 		second.item = "Leather-Jacket";
 		second.item_value = 1;
 		
-		Player player1 = new Player(2, 0, 0, inv, first, second);
+		Player player1 = new Player(1, 100, 5, inv, first, second);
 
 		
 		
