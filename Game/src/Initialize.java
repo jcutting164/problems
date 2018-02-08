@@ -167,7 +167,16 @@ public class Initialize {
 		return defences;
 	}
 	
-	
+	public ArrayList<String> getMagicList(){
+		ArrayList<String> magic = new ArrayList<String>();
+		magic.add("");
+		magic.add("");
+		magic.add("");
+		magic.add("");
+		magic.add("");
+		magic.add("");
+		magic.add("");
+	}
 	
 	
 	public int getRandom(int low, int high){
