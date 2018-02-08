@@ -24,9 +24,9 @@ public class Items {
 			item = defenceList.get(choice2);
 			item_value = defenceMap.get(item);
 		}else if(choice ==3){
-			int choice2 =init.getRandom();
-			item = 
-			item_value
+			//int choice2 =init.getRandom();
+			//item = 
+			//item_value
 		}
 		
 		
