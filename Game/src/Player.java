@@ -62,6 +62,8 @@ public class Player {
 						System.out.println("You have been defeated! \n");
 						break;
 					}
+				}else{
+					System.out.println("You took no damage!");
 				}
 				
 			}else if(input.equals("3")){
@@ -70,6 +72,7 @@ public class Player {
 					System.out.println("Special Moves:");
 					System.out.println("1. Double hit");
 					String choice2 = scan.nextLine();
+					System.out.println("test");
 					if(choice2.equals("1")){
 						Initialize init = new Initialize();
 						int ran = init.getRandom(1, 3);
@@ -77,7 +80,7 @@ public class Player {
 							System.out.println("You hit twice!");
 							System.out.println("But you failed....");
 							System.out.println("Looks like you are going to get hit twice now! Oops!");
-							for(int i=0; i<1; i++){
+							for(int i=0; i<2; i++){
 								int player_damage = (e1.attack_value) +(p1.defense_item.item_value/3);
 								p1.health_value = p1.health_value - player_damage;
 								System.out.println("The "+e1.type+ " did "+ player_damage +" damage to you. Leaving you with "+p1.health_value+" health \n");
@@ -87,11 +90,12 @@ public class Player {
 								System.out.println("You were defeated!");
 								break;
 							}
+							flag = true;
 							
 						}else if(ran==3){
 							System.out.println("You hit twice!");
-							System.out.println("And it was successful!!);
-							for(int i = 0; i<1; i++){
+							System.out.println("And it was successful!!");
+							for(int i = 0; i<2; i++){
 								int enemy_damage = weapon_item.item_value + p1.attack_value;
 								e1.health_value = e1.health_value - (enemy_damage);
 								System.out.println("You did "+enemy_damage+ " damage to the "+ e1.type+" \n" );  
@@ -99,7 +103,6 @@ public class Player {
 									System.out.println("You defeated the "+e1.type+"! \n");
 									break;
 								}
-							
 							}
 							
 							int player_damage = (e1.attack_value) +(p1.defense_item.item_value/3);
@@ -109,7 +112,7 @@ public class Player {
 								System.out.println("You were defeated!");
 								break;
 							}
-							
+							flag = true;
 						}
 					}
 				}
