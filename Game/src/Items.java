@@ -14,7 +14,7 @@ public class Items {
 		ArrayList<String> weaponsList = init.getWeaponList();
 		ArrayList<String> defenceList = init.getDefenceList();
 		
-		int choice = init.getRandom(1, 2);
+		int choice = init.getRandom(1, 3);
 		if(choice == 1){
 			int choice2 = init.getRandom(0, 9);
 			item = weaponsList.get(choice2);
@@ -23,6 +23,10 @@ public class Items {
 			int choice2 = init.getRandom(0, 9);
 			item = defenceList.get(choice2);
 			item_value = defenceMap.get(item);
+		}else if(choice ==3){
+			int choice2 =init.getRandom();
+			item = 
+			item_value
 		}
 		
 		
